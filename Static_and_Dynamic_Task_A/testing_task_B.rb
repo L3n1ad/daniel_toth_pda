@@ -33,7 +33,7 @@ def self.cards_total(cards)
   for card in cards
     total += card.value
   end
-  return "Your total value is: " + total.to_s
+  return total
 end
 
 end

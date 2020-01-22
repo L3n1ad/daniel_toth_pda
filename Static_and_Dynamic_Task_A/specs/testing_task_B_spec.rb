@@ -37,7 +37,7 @@ class CardGameTest < MiniTest::Test
 
   def test_cards_total
     result = CardGame.cards_total(@cards)
-    assert_equal("Your total value is: 10", result)
+    assert_equal(10, result)
   end
 
   # binding pry

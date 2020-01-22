@@ -11,4 +11,20 @@ describe('calculator', function () {
     assert.equal(true, true)
   })
 
+  it('it can add', function(){
+    calculator.add(3);
+    assert.equal(calculator.runningTotal, 3);
+  })
+
+  it('it can subtract', function(){
+    calculator.subtract(2);
+    assert.equal(calculator.runningTotal, -2);
+  })
+
+  it('it can multiply', function(){
+    calculator.previousTotal = 2;
+    calculator.multiply(2);
+    assert.equal(calculator.runningTotal, 4);
+  })
+
 });
