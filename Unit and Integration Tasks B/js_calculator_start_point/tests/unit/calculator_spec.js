@@ -64,4 +64,17 @@ describe('calculator', function () {
     assert.equal(calculator.previousOperator, null);
   })
 
+  it('it can clear previous calculation if runningTotal 0', function(){
+    calculator.clearClick();
+    assert.equal(calculator.previousOperator, null);
+    assert.equal(calculator.runningTotal, 0);
+    assert.equal(calculator.previousTotal, null);
+  })
+
+  it('it can clear previous calculation if running total not 0', function(){
+    calculator.runningTotal = 1;
+    calculator.clearClick();
+    assert.equal(calculator.runningTotal, 0);
+  })
+
 });
