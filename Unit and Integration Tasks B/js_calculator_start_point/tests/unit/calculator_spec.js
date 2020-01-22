@@ -12,8 +12,9 @@ describe('calculator', function () {
   })
 
   it('it can add', function(){
+    calculator.previousTotal = 2
     calculator.add(3);
-    assert.equal(calculator.runningTotal, 3);
+    assert.equal(calculator.runningTotal, 5);
   })
 
   it('it can subtract', function(){
@@ -31,6 +32,36 @@ describe('calculator', function () {
     calculator.previousTotal = 4;
     calculator.divide(2);
     assert.equal(calculator.runningTotal, 2);
+  })
+
+  it('it can click a number', function(){
+    calculator.numberClick(2);
+    assert.equal(calculator.runningTotal, 2);
+  })
+
+  it('it can pick + operator', function(){
+    calculator.operatorClick('+');
+    assert.equal(calculator.previousOperator, '+');
+  })
+
+  it('it can pick - operator', function(){
+    calculator.operatorClick('-');
+    assert.equal(calculator.previousOperator, '-');
+  })
+
+  it('it can pick * operator', function(){
+    calculator.operatorClick('*');
+    assert.equal(calculator.previousOperator, '*');
+  })
+
+  it('it can pick / operator', function(){
+    calculator.operatorClick('/');
+    assert.equal(calculator.previousOperator, '/');
+  })
+
+  it('it can pick = operator', function(){
+    calculator.operatorClick('=');
+    assert.equal(calculator.previousOperator, null);
   })
 
 });
