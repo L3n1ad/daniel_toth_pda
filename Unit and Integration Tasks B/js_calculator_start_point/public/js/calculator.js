@@ -20,7 +20,12 @@ Calculator.prototype = {
   },
 
   divide: function(number){
-    this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number);
+    if(number == 0){
+      this.runningTotal ='Divide by zero is impossible clr and try again';
+    } else {
+      this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number);
+
+    }
   },
 
   numberClick: function(number) {
