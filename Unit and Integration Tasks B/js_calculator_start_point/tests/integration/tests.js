@@ -32,7 +32,7 @@ describe('calculator functionality', function() {
     element(by.css('#number4')).click();
     expect(running_total.getAttribute('value')).to.eventually.equal('4')
   })
-  
+
   it('should have working number 5 buttons', function(){
     running_total = element(by.css('#running_total'))
     element(by.css('#number5')).click();
@@ -61,6 +61,60 @@ describe('calculator functionality', function() {
     running_total = element(by.css('#running_total'))
     element(by.css('#number9')).click();
     expect(running_total.getAttribute('value')).to.eventually.equal('9')
+  })
+
+  it('should display previousTotal when new + arithmetical operation clicked', function(){
+    running_total = element(by.css('#running_total'));
+    element(by.css('#number2')).click();
+    element(by.css('#operator_add')).click();
+    element(by.css('#number2')).click();
+    element(by.css('#operator_add')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('4');
+  })
+
+  it('should display previousTotal when new - arithmetical operation clicked', function(){
+    running_total = element(by.css('#running_total'));
+    element(by.css('#number5')).click();
+    element(by.css('#operator_subtract')).click();
+    element(by.css('#number2')).click();
+    element(by.css('#operator_subtract')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('3');
+  })
+
+  it('should display previousTotal when new * arithmetical operation clicked', function(){
+    running_total = element(by.css('#running_total'));
+    element(by.css('#number2')).click();
+    element(by.css('#operator_multiply')).click();
+    element(by.css('#number3')).click();
+    element(by.css('#operator_multiply')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('6');
+  })
+
+  it('should display previousTotal when new / arithmetical operation clicked', function(){
+    running_total = element(by.css('#running_total'));
+    element(by.css('#number8')).click();
+    element(by.css('#operator_divide')).click();
+    element(by.css('#number2')).click();
+    element(by.css('#operator_divide')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('4');
+  })
+
+  it('should display previousTotal when new + arithmetical operation clicked', function(){
+    running_total = element(by.css('#running_total'));
+    element(by.css('#number2')).click();
+    element(by.css('#operator_add')).click();
+    element(by.css('#number2')).click();
+    element(by.css('#operator_equals')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('4');
+  })
+
+  it('should display previousTotal when clear arithmetical operation clicked', function(){
+    running_total = element(by.css('#running_total'));
+    element(by.css('#number2')).click();
+    element(by.css('#operator_add')).click();
+    element(by.css('#number2')).click();
+    element(by.css('#clear')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('0');
   })
 
 });
